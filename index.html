@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>POS</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="pos-container">
+      <header>Cucina</header>
+      <h2>Traiteur By Silver Moon Hôtel</h2>
+      <main>
+        <section class="menu">
+          <h2>Menu</h2>
+          <ul id="menu-list" class="menu-list"></ul>
+          <div class="add-product-section">
+            <h3>Ajouter un produit</h3>
+            <input
+              type="text"
+              id="new-product-name"
+              placeholder="Nom du produit"
+            />
+            <input
+              type="number"
+              id="new-product-price"
+              placeholder="Prix (FCFA)"
+            />
+            <button id="add-product-btn">Ajouter</button>
+          </div>
+        </section>
+        <section class="cart">
+          <h2>Panier</h2>
+          <ul id="cart-list" class="cart-list"></ul>
+          <div class="total-container">
+            <span>Total :</span>
+            <span id="total">0</span> FCFA
+          </div>
+          <div class="btns-row">
+            <button class="btn-print" onclick="printTicket()">
+              🧾 Imprimer le ticket
+            </button>
+            <button class="btn-clear" onclick="clearCart()">🗑️ Effacer</button>
+            <button class="btn-save" onclick="saveTicketPDF()">
+              💾 Enregistrer en PDF
+            </button>
+          </div>
+        </section>
+      </main>
+      <section class="stats-section">
+        <h2>Statistiques du jour</h2>
+        <div id="stats-content">
+          <p>Nombre de ventes : <span id="stats-sales">0</span></p>
+          <p>Total encaissé : <span id="stats-total">0</span> FCFA</p>
+          <p>Top produits :</p>
+          <ul id="stats-top-products"></ul>
+        </div>
+      </section>
+      <section class="transactions-section">
+        <h2>Transactions</h2>
+        <label for="date-filter">Filtrer par date :</label>
+        <input type="date" id="date-filter" />
+        <ul id="transactions-list"></ul>
+      </section>
+      <section class="transactions-section">
+        <h2>Export-EXCEL</h2>
+        <label for="date-filter">Filtrer par date :</label>
+        <input type="date" id="date-filter" />
+        <button id="export-csv-btn" class="btn-export">
+          📤 Exporter les transactions
+        </button>
+        <ul id="transactions-list"></ul>
+      </section>
+    </div>
+    <div id="ticket" style="display: none"></div>
+    <br /><br /><br /><br /><br />
+    <footer class="footer-cucina">©2025cucina by Silver Moon Hôtel</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
